@@ -1,13 +1,16 @@
 :root {
-    --bg: #0c1014;
-    --surface: #121920;
-    --surface-2: #18222a;
-    --text: #eef4f1;
-    --muted: #95a4a6;
-    --line: rgba(212, 235, 230, .15);
-    --cyan: #79f6d0;
-    --blue: #72a6ff;
-    --orange: #ff9e64;
+    --bg: #f5f8ff;
+    --surface: #ffffff;
+    --surface-2: #eaf0ff;
+    --text: #172253;
+    --muted: #66749a;
+    --line: rgba(23, 34, 83, .14);
+    --cyan: #16d8f5;
+    --blue: #5c62ed;
+    --orange: #ff9f43;
+    --purple: #a958f5;
+    --magenta: #ee3dcc;
+    --grid-line: rgba(23, 34, 83, .055);
     --display: 'Space Grotesk', sans-serif;
     --mono: 'DM Mono', monospace;
     --radius: 2px
@@ -23,7 +26,9 @@ html {
 
 body {
     margin: 0;
-    background: var(--bg);
+    background: radial-gradient(circle at 86% 7%, rgba(169, 88, 245, .2), transparent 25%), radial-gradient(circle at 8% 35%, rgba(22, 216, 245, .14), transparent 24%), linear-gradient(115deg, rgba(255, 255, 255, .35), transparent 42%), linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px), var(--bg);
+    background-attachment: fixed;
+    background-size: auto, auto, auto, 44px 44px, 44px 44px, auto;
     color: var(--text);
     font-family: var(--display);
     font-size: 16px;
@@ -31,13 +36,17 @@ body {
     overflow-x: hidden
 }
 
-body.light {
-    --bg: #eef2ef;
-    --surface: #fff;
-    --surface-2: #e2eae7;
-    --text: #13201f;
-    --muted: #5b6c6c;
-    --line: rgba(19, 32, 31, .16)
+body.dark {
+    --bg: #0c1014;
+    --surface: #121920;
+    --surface-2: #18222a;
+    --text: #eef4f1;
+    --muted: #95a4a6;
+    --line: rgba(212, 235, 230, .15);
+    --cyan: #79f6d0;
+    --blue: #72a6ff;
+    --orange: #ff9e64;
+    --grid-line: rgba(212, 235, 230, .07)
 }
 
 a {
@@ -66,7 +75,8 @@ button {
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid var(--line);
-    position: relative;
+    position: sticky;
+    top: 0;
     z-index: 20;
     background: color-mix(in srgb, var(--bg) 90%, transparent);
     backdrop-filter: blur(14px)
@@ -133,12 +143,20 @@ button {
     display: none
 }
 
-.light .sun-icon {
+.sun-icon {
     display: none
 }
 
-.light .moon-icon {
+.moon-icon {
     display: block
+}
+
+.dark .sun-icon {
+    display: block
+}
+
+.dark .moon-icon {
+    display: none
 }
 
 .section-grid {
@@ -320,6 +338,14 @@ button {
     opacity: .55
 }
 
+.window-dots i:first-child {
+    background: var(--magenta)
+}
+
+.window-dots i:nth-child(2) {
+    background: var(--purple)
+}
+
 .window-meta {
     margin-left: auto;
     color: var(--cyan)
@@ -349,6 +375,10 @@ button {
     font-weight: 400
 }
 
+.code-content .accent {
+    color: var(--purple)
+}
+
 .code-content span {
     color: var(--orange)
 }
@@ -370,7 +400,7 @@ button {
     height: 52%;
     background: linear-gradient(140deg, rgba(12, 16, 20, .1), rgba(12, 16, 20, .72)), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=700&q=85') center/cover;
     filter: saturate(.7);
-    border: 1px solid var(--line)
+    border: 1px solid var(--purple)
 }
 
 .floating-chip {
@@ -398,7 +428,7 @@ button {
 .chip-two {
     bottom: 12%;
     left: -5%;
-    background: var(--orange)
+    background: var(--magenta)
 }
 
 .intro-band {
@@ -482,7 +512,8 @@ button {
 }
 
 .stack-card.featured {
-    background: var(--surface-2)
+    background: var(--surface-2);
+    border-top: 2px solid var(--purple)
 }
 
 .stack-card.wide {

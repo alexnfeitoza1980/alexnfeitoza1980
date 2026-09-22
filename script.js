@@ -2,12 +2,12 @@ const themeToggle = document.querySelector('.theme-toggle');
 const revealItems = document.querySelectorAll('.reveal');
 
 themeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('light');
-    localStorage.setItem('portfolio-theme', document.body.classList.contains('light') ? 'light' : 'dark');
+    document.body.classList.toggle('dark');
+    localStorage.setItem('portfolio-theme', document.body.classList.contains('dark') ? 'dark' : 'light');
 });
 
-if (localStorage.getItem('portfolio-theme') === 'light') {
-    document.body.classList.add('light');
+if (localStorage.getItem('portfolio-theme') === 'dark') {
+    document.body.classList.add('dark');
 }
 
 const observer = new IntersectionObserver((entries) => {
